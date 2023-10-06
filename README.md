@@ -14,15 +14,15 @@ Your application should expose three HTTP endpoints:
 
 ### API Input:
 
-This API does not have any input.
+This API has no specific input requirements.
 
 ### API Response:
 
-For each request executed against the API endpoint, you should return a list of meals that are available to be ordered. 
+For each request to this API endpoint, return a list of available meals.
 
 ### Workflow:
 
-When the API is being called, your code should do crawling of table data from the table below:
+When the API is called, your code should crawl table data from the following source:
 <table> <tbody>
   <tr>       					
       <td class="mealId">1</td>
@@ -71,7 +71,7 @@ When the API is being called, your code should do crawling of table data from th
   </tr>
 </tbody></table>
 
-Your code should then return a list of meals as the response. The value of **_mealId_** would be used as an identifier of the meal that the user wants to order.
+Your code should then return a list of meals as the response, with the **_mealId_** serving as a unique identifier for each meal.
 
 
 ### API Definition: 
@@ -82,19 +82,15 @@ Your code should then return a list of meals as the response. The value of **_me
 
 ### API Input:
 
-This API endpoint takes at least one meal ID as input (more are possible), e.g.:
-
-https://lunch/order?mealIds=5
-
-https://lunch/order?mealIds=4,8,9
+This API endpoint takes list of meal IDs that user wants to order.
 
 ### API Output:
 
-Returns the ID of the stored order which will be the input for the third API endpoint.
+Returns the ID of the stored order, which will be used as input for the third API endpoint.
 
 ### Workflow:
 
-When this API is being called new order should be created and the identifier of the newly created order is returned.
+When this API is called, create a new order and return its identifier.
 
 
 ### API Definition: 
@@ -115,11 +111,11 @@ Returns the order with updated values.
 
 ### Workflow:
 
-When this API is being called, the existing order is updated with newly requested meal IDs.
+When this API is called, update the existing order with newly requested meal IDs.
 
 
 ### Additional Functionality
-Each day, mail should be sent to the mail address with summarized meal IDs.
+Each day at 10:30, send an email to a specified email address with a summarized list of meal IDs.
 
 **eMail content example**
 ```
