@@ -25,7 +25,7 @@ For each request to this API endpoint, return a list of available meals.
 When the API is called, your code should crawl table data from the following source:
 <table> <tbody>
   <tr>       					
-      <td class="rednibroj">1. </td>
+      <td class="mealId">1</td>
       <td class="mealName">Varivo od mix mahunarki</td>
       <td class="price">3,60€</td>
   </tr>
