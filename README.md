@@ -5,6 +5,7 @@ Implement a daily lunch ordering application.
 ## Specification
 Your application should expose three HTTP endpoints:
 
+
 ### API Definition: 
 
 ```
@@ -24,53 +25,54 @@ For each request executed against the API endpoint, you should return a list of 
 When the API is being called, your code should do crawling of table data from the table below:
 <table> <tbody>
   <tr>       					
-      <td class="rednibroj">1</td>
-      <td class="jelo">Varivo od mix mahunarki</td>
-      <td class="cijena">3,60€</td>
+      <td class="mealId">1</td>
+      <td class="mealName">Varivo od mix mahunarki</td>
+      <td class="price">3,60€</td>
   </tr>
   <tr>       					
-      <td class="rednibroj">2</td>
-      <td class="jelo">Pohani file oslića – krumpir salata s rikulom</td>
-      <td class="cijena">6,30€</td>
+      <td class="mealId">2</td>
+      <td class="mealName">Pohani file oslića – krumpir salata s rikulom</td>
+      <td class="price">6,30€</td>
   </tr> 
   <tr>       					
-      <td class="rednibroj">3</td>
-      <td class="jelo">Pohani file oslića, umak od vlasca i krastavca - slani krumpir</td>
-      <td class="cijena">6,30€</td>
+      <td class="mealId">3</td>
+      <td class="mealName">Pohani file oslića, umak od vlasca i krastavca - slani krumpir</td>
+      <td class="price">6,30€</td>
   </tr>
   <tr>       					
-      <td class="rednibroj">4</td>
-      <td class="jelo">Steak tune sa žara, tršćanski umak – blitva s krumpirom</td>
-      <td class="cijena">10€</td>
+      <td class="mealId">4</td>
+      <td class="mealName">Steak tune sa žara, tršćanski umak – blitva s krumpirom</td>
+      <td class="price">10€</td>
   </tr>
   <tr>       					
-      <td class="rednibroj">5</td>
-      <td class="jelo">Orada sa žara, tršćanski umak – blitva s krumpirom</td>
-      <td class="cijena">7,10€</td>
+      <td class="mealId">5</td>
+      <td class="mealName">Orada sa žara, tršćanski umak – blitva s krumpirom</td>
+      <td class="price">7,10€</td>
   </tr>
   <tr>       					
-      <td class="rednibroj">6</td>
-      <td class="jelo">Crni rižoto od liganja s parmezanom</td>
-      <td class="cijena">6,50€</td>
+      <td class="mealId">6</td>
+      <td class="mealName">Crni rižoto od liganja s parmezanom</td>
+      <td class="price">6,50€</td>
   </tr>
   <tr>       					
-      <td class="rednibroj">7</td>
-      <td class="jelo">Pureći medaljoni u umaku od pesta s tjesteninom</td>
-      <td class="cijena">6€</td>
+      <td class="mealId">7</td>
+      <td class="mealName">Pureći medaljoni u umaku od pesta s tjesteninom</td>
+      <td class="price">6€</td>
   </tr>
   <tr>       					
-      <td class="rednibroj">8</td>
-      <td class="jelo">Juha od rajčice</td>
-      <td class="cijena">1,20€</td>
+      <td class="mealId">8</td>
+      <td class="mealName">Juha od rajčice</td>
+      <td class="price">1,20€</td>
   </tr>
   <tr>       					
-      <td class="rednibroj">9</td>
-      <td class="jelo">Salata miješana</td>
-      <td class="cijena">1,10€</td>
+      <td class="mealId">9</td>
+      <td class="mealName">Salata miješana</td>
+      <td class="price">1,10€</td>
   </tr>
 </tbody></table>
 
-Your code should then return a list of meals as the response. The value of **_rednibroj_** would be used as an identifier of the meal that the user wants to order.
+Your code should then return a list of meals as the response. The value of **_mealId_** would be used as an identifier of the meal that the user wants to order.
+
 
 ### API Definition: 
 
@@ -95,8 +97,44 @@ Returns the ID of the stored order which will be the input for the third API end
 When this API is being called new order should be created and the identifier of the newly created order is returned.
 
 
+### API Definition: 
+
+```
+/order/{id}
+```
+
+### API Input:
+
+This API endpoint takes order ID as input:
+
+https://lunch/order/1
+
+### API Output:
+
+Returns the order with updated values.
+
+### Workflow:
+
+When this API is being called, the existing order is updated with newly requested meal IDs.
+
+
+### Additional Functionality
+Each day, mail should be sent to the mail address with summarized meal IDs.
+
+**eMail content example**
+```
+Hello, we would like to order the following:
+
+2 x Pohani file oslića, umak od vlasca i krastavca - slani krumpir
+1 x Orada sa žara, tršćanski umak – blitva s krumpirom
+3 x Juha od rajčice
+
+Regards,
+Leapwise team
+```
+
 ## Additional Information
-You should use following frameworks for your work.
+You should use the following frameworks for your work.
 
 Spring JPA
 H2 database running in memory (data will not be persistent across application restarts)
