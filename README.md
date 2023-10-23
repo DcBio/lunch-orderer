@@ -120,7 +120,7 @@ When this API is called, update the existing order with newly requested meal IDs
 
 
 ### Additional Functionality
-Each day at 10:30, send an email to a specified email address with a summarized list of meal IDs.
+Each day at 10:30, send an email to a configurable email address with a summarized list of meal IDs.
 
 **eMail content example**
 ```
@@ -139,7 +139,7 @@ You should use the following frameworks for your work.
 
 Spring JPA
 H2 database running in memory (data will not be persistent across application restarts)
-You are free to add / change any libraries which you might need to solve this exercise, the only requirement is that we do not have to setup / install any external software to run this application.
+You are free to add / change any libraries that you might need to solve this exercise, the only requirement is that we do not have to setup / install any external software to run this application.
 
 Running the exercise with maven
 
